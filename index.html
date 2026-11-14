@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es" translate="no" class="notranslate">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mis XV años · Neizi Lisbeth Samaniego Aguilar</title>
+<meta name="description" content="Una noche tras el antifaz, un recuerdo para siempre. 23 de enero de 2027 · Hotel W, Panamá.">
+<meta property="og:title" content="✨ Mis XV años · Neizi Lisbeth">
+<meta property="og:description" content="Una noche tras el antifaz, un recuerdo para siempre · Sábado 23 de enero de 2027 · 8:00 p.m. · Hotel W, Panamá">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Invitación XV años">
+<meta property="og:locale" content="es_PA">
+<meta property="og:url" content="https://jadeinkinvitacionesdigitales-source.github.io/xv-neizi/">
+<meta property="og:image" content="https://jadeinkinvitacionesdigitales-source.github.io/xv-neizi/img/og.jpg">
+<meta property="og:image:secure_url" content="https://jadeinkinvitacionesdigitales-source.github.io/xv-neizi/img/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mis XV años · Neizi Lisbeth · 23 de enero de 2027">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jadeinkinvitacionesdigitales-source.github.io/xv-neizi/img/og.jpg">
+<meta name="theme-color" content="#2a0c10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos-base.css">
+<style>
+  body{margin:0;background:#2a0c10}
+  body.bloqueado{overflow:hidden;height:100svh}
+  [hidden]{display:none!important}
+  .justify-items-center{justify-items:center}
+
+  /* ----- Intro: sobre ----- */
+  #intro{position:fixed;inset:0;z-index:50;background:#000;transition:opacity 1.2s ease}
+  #intro.fuera{opacity:0;pointer-events:none}
+  #intro video{width:100%;height:100%;object-fit:cover;display:block}
+  .intro-toque{position:absolute;inset:0;width:100%;border:0;background:none;cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding:0 16px max(12svh,48px)}
+  .pastilla{font-family:var(--font-body);font-size:clamp(1rem,4.2vw,1.2rem);letter-spacing:.12em;color:var(--cream);
+    padding:.75rem 1.6rem;border-radius:999px;border:1px solid oklch(93% .035 85/.45);background:oklch(25% .05 25/.35);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);text-align:center;max-width:92vw;animation:latido 2.4s ease-in-out infinite}
+  .saltar{position:absolute;top:max(16px,env(safe-area-inset-top));right:16px;font-family:var(--font-display);font-size:.75rem;letter-spacing:.25em;
+    color:var(--cream);padding:.5rem 1.1rem;border-radius:999px;border:1px solid oklch(93% .035 85/.45);background:oklch(25% .05 25/.3);cursor:pointer}
+  @keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+
+  /* ----- Música ----- */
+  .musica{opacity:0;pointer-events:none}
+  .musica.visible{opacity:.7;pointer-events:auto}
+  .musica.sonando{opacity:1}
+  .musica.sonando img{animation-play-state:running!important}
+
+  /* ----- Espacios para fotos ----- */
+  .foto{position:relative}
+  .foto img.cargada{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .foto-principal-vacia{aspect-ratio:3/4}
+  .vacio{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+    background:oklch(96% .02 80/.45);border:1.5px dashed oklch(78% .11 85/.8);border-radius:inherit;
+    font-family:var(--font-display);font-size:.8rem;letter-spacing:.3em;color:var(--burgundy)}
+  .vacio img{width:38%;opacity:.55}
+  .foto.lista .vacio{display:none}
+
+  /* ----- Colores reservados ----- */
+  .colores{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.9rem 1.6rem;font-family:var(--font-display);font-size:.875rem;letter-spacing:.3em;color:var(--burgundy)}
+  .colores span{display:flex;align-items:center;gap:.5rem}
+  .colores i{position:relative;display:inline-block;width:1.6rem;height:1.6rem;border-radius:999px;border:1.5px solid var(--gold)}
+  .colores i::after{content:"";position:absolute;left:50%;top:-5px;bottom:-5px;width:2.5px;margin-left:-1.25px;background:#fff7e6;border-radius:2px;
+    box-shadow:0 0 0 1px var(--burgundy-deep);transform:rotate(45deg)}
+  .colores{gap:.9rem 1rem;letter-spacing:.12em;font-size:.8rem;font-weight:600}
+  .colores span{gap:.4rem}
+  .colores i{width:1.35rem;height:1.35rem}
+  .prohibido{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;padding:.6rem 1.3rem;border-radius:999px;
+    background:var(--burgundy);border:1px solid var(--gold);box-shadow:var(--glow-gold);
+    font-family:var(--font-display);font-size:clamp(.75rem,3.2vw,.9rem);letter-spacing:.16em;text-transform:uppercase;color:var(--champagne)}
+  .prohibido svg{flex:none;width:1.3rem;height:1.3rem;fill:none;stroke:var(--gold);stroke-width:2.2}
+
+  /* ----- Botones como el original ----- */
+  .boton{display:inline-flex;width:min(82vw,300px);align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;border-radius:999px;
+    border:1px solid var(--gold);background:var(--burgundy);padding:.75rem 1.5rem;font-family:var(--font-display);font-size:.875rem;
+    text-transform:uppercase;letter-spacing:.18em;color:var(--champagne);box-shadow:var(--glow-gold);text-decoration:none;cursor:pointer;transition:transform .5s}
+  .boton:hover{transform:scale(1.03)}
+  .boton img{width:2.25rem;height:2.25rem;margin:-.75rem 0;object-fit:contain}
+  .boton[disabled]{opacity:.6}
+  .pase{display:inline-block;margin-top:1rem;padding:.5rem 1.2rem;border:1px dashed var(--burgundy);border-radius:.9rem;background:oklch(97% .02 80/.35);
+    font-family:var(--font-body);font-size:1.15rem;color:var(--ink)}
+
+  /* ----- Formularios en la página (igual que las otras invitaciones) ----- */
+  .tarjeta-form{max-width:460px;margin-left:auto;margin-right:auto;display:grid;gap:1rem;text-align:left;padding:1.6rem 1.3rem;
+    background:oklch(96% .02 80/.72);border:1px solid var(--gold);border-radius:1.4rem;box-shadow:var(--shadow-warm),var(--glow-gold);
+    backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .tarjeta-form .boton{width:100%;max-width:300px;letter-spacing:.12em}
+  .campo{display:block}
+  .campo>span{display:block;font-family:var(--font-display);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy-deep);font-weight:600;margin-bottom:.35rem}
+  .campo input,.campo select,.campo textarea{width:100%;box-sizing:border-box;font-family:var(--font-body);font-size:1.15rem;color:var(--ink);
+    background:#fffc;border:1px solid oklch(78% .11 85/.9);border-radius:.6rem;padding:.65rem .8rem;outline:none}
+  .campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--burgundy);box-shadow:0 0 0 3px oklch(32% .13 18/.15)}
+  .campo textarea{min-height:6rem;resize:vertical}
+  .opciones{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .opciones label{position:relative;font-family:var(--font-body);font-size:1.1rem;font-weight:600;color:var(--ink)}
+  .opciones input{position:absolute;opacity:0}
+  .opciones span{display:block;text-align:center;padding:.65rem .4rem;border:1px solid oklch(78% .11 85/.9);border-radius:.6rem;background:#fff8;cursor:pointer;transition:.2s}
+  .opciones input:checked+span{background:var(--burgundy);color:var(--champagne);border-color:var(--burgundy)}
+  .opciones input:focus-visible+span{outline:2px solid var(--burgundy);outline-offset:2px}
+  .aviso{margin:0;text-align:center;font-family:var(--font-body);font-size:1.05rem;font-weight:600;color:#9b1c1c}
+  .aviso:empty{display:none}
+  .aviso.ok{color:var(--burgundy)}
+  .hecho{text-align:center}
+  .hecho b{display:block;font-family:var(--font-script);font-weight:400;font-size:2.4rem;color:var(--burgundy);line-height:1.2}
+  .hecho p{font-family:var(--font-body);font-size:1.2rem;color:var(--ink);margin-top:.3rem}
+  .tarjeta-form .pase{justify-self:center;margin:0;text-align:center}
+  .tarjeta-form .pase b{font-family:var(--font-display);color:var(--burgundy);margin-right:.35rem}
+</style>
+</head>
+<body class="bloqueado">
+
+<!-- ================= Intro: sobre ================= -->
+<div id="intro" role="dialog" aria-label="Abrir invitación">
+  <video id="video-sobre" src="img/sobre.mp4" poster="img/sobre-poster.jpg" playsinline muted preload="auto"></video>
+  <button class="intro-toque" id="abrir" type="button" aria-label="Abrir la invitación">
+    <span class="pastilla">Toca la pantalla para abrir tu invitación</span>
+  </button>
+  <button class="saltar" id="saltar" type="button" hidden>SALTAR</button>
+</div>
+
+<div class="relative min-h-screen w-full overflow-x-hidden">
+  <div aria-hidden="true" class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat" style="background-image:url(img/diseno/bg-mobile.webp)"></div>
+  <div aria-hidden="true" class="fixed inset-0 -z-10 hidden bg-cover bg-center bg-no-repeat md:block" style="background-image:url(img/diseno/bg-desktop.webp)"></div>
+
+  <!-- Música: pon tu canción en musica/cancion.mp3 (ver config.js) -->
+  <audio id="audio" loop preload="none"></audio>
+  <button id="boton-musica" aria-label="Reproducir música" class="musica fixed bottom-4 right-4 z-40 grid h-14 w-14 place-items-center rounded-full border border-[var(--gold)]/60 bg-[var(--cream)]/70 transition-opacity duration-700">
+    <img decoding="async" alt="" aria-hidden="true" class="h-11 w-11 object-contain" src="img/diseno/violin-musica.webp" style="animation: 6s linear 0s infinite normal none paused disco;">
+  </button>
+
+  <main class="mx-auto w-full max-w-5xl px-5 pb-10">
+
+    <!-- Portada -->
+    <section class="flex min-h-[100svh] flex-col items-center justify-center py-10">
+      <div class="mb-6 px-5 text-center" style="text-shadow:0 1px 10px rgba(255,240,215,0.7)">
+        <img decoding="async" src="img/diseno/mascara.webp" alt="" aria-hidden="true" class="floaty mx-auto mb-2 w-[min(46vw,220px)] drop-shadow-[0_6px_14px_rgba(90,20,30,0.3)]">
+        <p class="font-display text-[clamp(1.05rem,4.2vw,1.4rem)] font-bold uppercase tracking-[0.42em]" style="color:#5E3A0E">Mis XV años</p>
+        <h1 class="font-script my-1 text-[clamp(2.8rem,12vw,5rem)] leading-tight" style="color:#6B1E2A">Neizi Lisbeth Samaniego Aguilar</h1>
+        <p class="font-body text-[clamp(1.2rem,4.8vw,1.6rem)] italic font-semibold tracking-wide" style="color:#5E3A0E">Una noche tras el antifaz, un recuerdo para siempre.</p>
+      </div>
+      <!-- Foto principal: coloca img/foto-principal.jpg -->
+      <div class="foto foto-principal-vacia relative w-[92vw] max-w-[520px] overflow-hidden rounded-2xl md:max-w-[640px]" style="box-shadow:var(--shadow-warm), var(--glow-gold)" data-foto="img/foto-principal.jpg">
+        <div class="vacio"><img src="img/diseno/mascara.webp" alt="">FOTO PRINCIPAL</div>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Texto principal -->
+    <section class="py-16">
+      <div class="reveal mx-auto max-w-[720px] space-y-5 text-center font-body text-[clamp(1.12rem,4vw,1.35rem)] text-hug leading-relaxed text-[var(--ink)]">
+        <p>Hay momentos que soñamos y recuerdos que guardamos para siempre.</p>
+        <p>Hoy, al cumplir mis quince años, quiero compartir contigo la alegría de comenzar una nueva etapa, rodeada del amor de mi familia y de las personas que forman parte de mi historia.</p>
+        <p>Te invito a celebrar conmigo una noche de elegancia, misterio y magia.</p>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Padres -->
+    <section class="py-14">
+      <div class="reveal text-center">
+        <div class="text-center"><h2 class="font-display inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-2 text-center text-[clamp(1.4rem,4.4vw,2.2rem)] tracking-[0.18em] uppercase text-[var(--champagne)]" style="text-shadow:0 2px 10px rgba(0,0,0,0.35)">Mis Padres</h2></div>
+        <p class="mt-6 text-center font-script text-[clamp(1.8rem,6vw,2.6rem)]"><span class="inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-1"><span class="gold-text" style="text-shadow:none">Alba Aguilar</span></span></p>
+        <p class="mt-2 text-center font-script text-[clamp(1.8rem,6vw,2.6rem)]"><span class="inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-1"><span class="gold-text" style="text-shadow:none">Pablo Samaniego</span></span></p>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Cuenta regresiva -->
+    <section class="py-14">
+      <div class="reveal">
+        <div class="text-center"><h2 class="font-display inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-2 text-center text-[clamp(1.4rem,4.4vw,2.2rem)] tracking-[0.18em] uppercase text-[var(--champagne)]" style="text-shadow:0 2px 10px rgba(0,0,0,0.35)">CADA DÍA QUE PASA NOS ACERCA MÁS A ESTA NOCHE, FALTAN</h2></div>
+        <div class="mt-8">
+          <div class="relative left-1/2 w-[min(96vw,720px)] -translate-x-1/2">
+            <img loading="lazy" src="img/diseno/marco-conteo.webp" alt="" aria-hidden="true" class="block w-full">
+            <div class="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center leading-none" style="left:16.8%;top:61%;width:13%"><div data-c="d" class="font-display text-[clamp(1rem,5.2vw,2.3rem)] font-semibold text-[var(--burgundy)] tabular-nums">0</div><div class="mt-[0.2em] font-body text-[clamp(0.5rem,2.1vw,0.85rem)] font-semibold uppercase tracking-[0.12em] text-[var(--burgundy-deep)]">Días</div></div>
+            <div class="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center leading-none" style="left:39%;top:61%;width:13%"><div data-c="h" class="font-display text-[clamp(1rem,5.2vw,2.3rem)] font-semibold text-[var(--burgundy)] tabular-nums">0</div><div class="mt-[0.2em] font-body text-[clamp(0.5rem,2.1vw,0.85rem)] font-semibold uppercase tracking-[0.12em] text-[var(--burgundy-deep)]">Horas</div></div>
+            <div class="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center leading-none" style="left:60.9%;top:61%;width:13%"><div data-c="m" class="font-display text-[clamp(1rem,5.2vw,2.3rem)] font-semibold text-[var(--burgundy)] tabular-nums">0</div><div class="mt-[0.2em] font-body text-[clamp(0.5rem,2.1vw,0.85rem)] font-semibold uppercase tracking-[0.12em] text-[var(--burgundy-deep)]">Min</div></div>
+            <div class="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center leading-none" style="left:83.2%;top:61%;width:13%"><div data-c="s" class="font-display text-[clamp(1rem,5.2vw,2.3rem)] font-semibold text-[var(--burgundy)] tabular-nums">0</div><div class="mt-[0.2em] font-body text-[clamp(0.5rem,2.1vw,0.85rem)] font-semibold uppercase tracking-[0.12em] text-[var(--burgundy-deep)]">Seg</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Fecha, hora y ubicación -->
+    <section class="py-14">
+      <div class="reveal grid gap-10 text-center md:grid-cols-3">
+        <div>
+          <img loading="lazy" src="img/diseno/icono-calendario.webp" alt="" aria-hidden="true" class="mx-auto mb-3 h-24 w-24 object-contain drop-shadow-[0_4px_10px_rgba(90,20,30,0.25)]">
+          <p class="font-display text-sm uppercase tracking-[0.3em] text-[var(--burgundy-deep)] font-semibold">Fecha</p>
+          <p class="font-display mt-2 text-3xl text-[var(--burgundy)]">23</p>
+          <p class="font-body text-lg tracking-[0.25em] uppercase text-[var(--burgundy-deep)] font-semibold">Enero</p>
+          <p class="font-body text-lg text-[var(--burgundy-deep)] font-semibold">2027</p>
+        </div>
+        <div>
+          <img loading="lazy" src="img/diseno/icono-reloj.webp" alt="" aria-hidden="true" class="mx-auto mb-3 h-24 w-24 object-contain drop-shadow-[0_4px_10px_rgba(90,20,30,0.25)]">
+          <p class="font-display text-sm uppercase tracking-[0.3em] text-[var(--burgundy-deep)] font-semibold">Hora</p>
+          <p class="font-display mt-2 text-3xl text-[var(--burgundy)]">8:00 PM</p>
+        </div>
+        <div>
+          <img loading="lazy" src="img/diseno/icono-ubicacion.webp" alt="" aria-hidden="true" class="mx-auto mb-3 h-24 w-24 object-contain drop-shadow-[0_4px_10px_rgba(90,20,30,0.25)]">
+          <p class="font-display text-sm uppercase tracking-[0.3em] text-[var(--burgundy-deep)] font-semibold">Ubicación</p>
+          <p class="font-display mt-2 text-xl text-[var(--burgundy)]">Hotel W</p>
+          <p class="font-body text-[var(--burgundy-deep)] font-semibold">Calle 50 y Aquilino de la Guardia</p>
+          <p class="font-body text-[var(--burgundy-deep)] font-semibold">Evolution Tower, Bella Vista</p>
+          <p class="font-body text-[var(--burgundy-deep)] font-semibold">Ciudad de Panamá</p>
+        </div>
+      </div>
+      <div class="reveal mt-12 text-center" style="transition-delay:150ms">
+        <a class="boton" style="letter-spacing:.25em" target="_blank" rel="noreferrer"
+           href="https://www.google.com/maps/search/?api=1&query=Hotel+W+Panama+Calle+50+Aquilino+de+la+Guardia+Evolution+Tower">Cómo llegar</a>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <section class="py-10">
+      <div class="reveal"><img src="img/diseno/violin.webp" alt="" aria-hidden="true" loading="lazy" class="floaty mx-auto w-[min(58vw,300px)]" style="filter:drop-shadow(0 12px 30px oklch(0.3 0.1 20 / 0.35))"></div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Galería: coloca img/galeria-1.jpg … img/galeria-6.jpg -->
+    <section class="py-14">
+      <div class="reveal">
+        <div class="text-center"><h2 class="font-display inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-2 text-center text-[clamp(1.4rem,4.4vw,2.2rem)] tracking-[0.18em] uppercase text-[var(--champagne)]" style="text-shadow:0 2px 10px rgba(0,0,0,0.35)">Momentos</h2></div>
+        <p class="mt-3 text-center font-body text-sm tracking-[0.2em] text-[var(--burgundy-deep)] font-semibold">Desliza para ver <span class="slide-hint">↔</span></p>
+        <div class="no-scrollbar mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
+          <div class="foto aspect-[3/4] w-[84vw] max-w-[430px] flex-shrink-0 snap-center overflow-hidden rounded-xl md:w-[400px]" style="box-shadow:var(--shadow-warm)" data-foto="img/galeria-1.jpg"><div class="vacio"><img src="img/diseno/mascara.webp" alt="">FOTO 1</div></div>
+          <div class="foto aspect-[3/4] w-[84vw] max-w-[430px] flex-shrink-0 snap-center overflow-hidden rounded-xl md:w-[400px]" style="box-shadow:var(--shadow-warm)" data-foto="img/galeria-2.jpg"><div class="vacio"><img src="img/diseno/mascara.webp" alt="">FOTO 2</div></div>
+          <div class="foto aspect-[3/4] w-[84vw] max-w-[430px] flex-shrink-0 snap-center overflow-hidden rounded-xl md:w-[400px]" style="box-shadow:var(--shadow-warm)" data-foto="img/galeria-3.jpg"><div class="vacio"><img src="img/diseno/mascara.webp" alt="">FOTO 3</div></div>
+          <div class="foto aspect-[3/4] w-[84vw] max-w-[430px] flex-shrink-0 snap-center overflow-hidden rounded-xl md:w-[400px]" style="box-shadow:var(--shadow-warm)" data-foto="img/galeria-4.jpg"><div class="vacio"><img src="img/diseno/mascara.webp" alt="">FOTO 4</div></div>
+          <div class="foto aspect-[3/4] w-[84vw] max-w-[430px] flex-shrink-0 snap-center overflow-hidden rounded-xl md:w-[400px]" style="box-shadow:var(--shadow-warm)" data-foto="img/galeria-5.jpg"><div class="vacio"><img src="img/diseno/mascara.webp" alt="">FOTO 5</div></div>
+          <div class="foto aspect-[3/4] w-[84vw] max-w-[430px] flex-shrink-0 snap-center overflow-hidden rounded-xl md:w-[400px]" style="box-shadow:var(--shadow-warm)" data-foto="img/galeria-6.jpg"><div class="vacio"><img src="img/diseno/mascara.webp" alt="">FOTO 6</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Dress code -->
+    <section class="py-14">
+      <div class="reveal">
+        <div class="text-center"><h2 class="font-display inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-2 text-center text-[clamp(1.4rem,4.4vw,2.2rem)] tracking-[0.18em] uppercase text-[var(--champagne)]" style="text-shadow:0 2px 10px rgba(0,0,0,0.35)">Dress Code</h2></div>
+        <p class="mt-2 text-center font-script text-[clamp(1.8rem,6vw,2.6rem)]"><span class="inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-1"><span class="gold-text" style="text-shadow:none">Formal de Gala</span></span></p>
+        <div class="mt-2 space-y-2 text-center font-body text-[clamp(1.1rem,3.8vw,1.25rem)] text-[var(--ink)] text-hug">
+          <p>Código de vestimenta: formal de gala.</p>
+          <p>Adolescentes hombres: formal de gala totalmente negro.</p>
+        </div>
+        <div class="mt-8 grid grid-cols-2 items-end gap-4">
+          <img src="img/diseno/dress-ella.webp" alt="Vestido de gala para ellas" loading="lazy" class="mx-auto w-full max-w-[240px]">
+          <img src="img/diseno/dress-el.webp" alt="Traje de gala para ellos" loading="lazy" class="mx-auto w-full max-w-[240px]">
+        </div>
+        <p class="mt-8 text-center font-display text-sm uppercase tracking-[0.25em] text-[var(--burgundy-deep)] font-semibold">Colores reservados para la quinceañera</p>
+        <div class="colores mt-4">
+          <span><i style="background:linear-gradient(135deg,oklch(87% .07 88),oklch(78% .11 85))"></i>DORADO</span>
+          <span><i style="background:#b3122b"></i>ROJO</span>
+          <span><i style="background:var(--burgundy)"></i>BORGOÑA</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Mesa de regalos -->
+    <section class="py-14">
+      <div class="reveal">
+        <div class="text-center"><h2 class="font-display inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-2 text-center text-[clamp(1.4rem,4.4vw,2.2rem)] tracking-[0.18em] uppercase text-[var(--champagne)]" style="text-shadow:0 2px 10px rgba(0,0,0,0.35)">Lluvia de sobres</h2></div>
+        <img src="img/diseno/sobre.webp" alt="" aria-hidden="true" loading="lazy" class="floaty mx-auto mt-8 w-[min(76vw,380px)]">
+        <div class="mx-auto mt-8 max-w-[640px] space-y-3 text-center font-body text-[clamp(1.12rem,3.9vw,1.3rem)] text-hug">
+          <p>Tu presencia es mi mejor regalo.</p>
+          <p>Si deseas tener un detalle especial conmigo, tendremos lluvia de sobres el día de la celebración.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Playlist -->
+    <section class="py-14">
+      <div class="reveal">
+        <div class="text-center"><h2 class="font-display inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-2 text-center text-[clamp(1.4rem,4.4vw,2.2rem)] tracking-[0.18em] uppercase text-[var(--champagne)]" style="text-shadow:0 2px 10px rgba(0,0,0,0.35)">Playlist</h2></div>
+        <div class="mt-6 text-center font-body text-[clamp(1.12rem,3.9vw,1.3rem)] mx-auto max-w-[640px] text-hug">
+          <p>¿Qué canción no puede faltar para que bailemos toda la noche?</p>
+        </div>
+        <div class="tarjeta-form mt-8">
+          <label class="campo"><span>Canción y artista</span><input id="song" maxlength="120" placeholder="Ej. Bailando — Enrique Iglesias"></label>
+          <p class="aviso" id="songErr"></p>
+          <div class="text-center"><button class="boton" type="button" id="sendSong">Agregar a la playlist</button></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Mensaje para la quinceañera -->
+    <section class="py-14">
+      <div class="reveal">
+        <div class="text-center"><h2 class="font-display inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-2 text-center text-[clamp(1.4rem,4.4vw,2.2rem)] tracking-[0.18em] uppercase text-[var(--champagne)]" style="text-shadow:0 2px 10px rgba(0,0,0,0.35)">Mensaje para Neizi</h2></div>
+        <div class="mt-6 text-center font-body text-[clamp(1.12rem,3.9vw,1.3rem)] mx-auto max-w-[640px] text-hug">
+          <p>Déjame unas palabras que guardaré como recuerdo de esta noche.</p>
+        </div>
+        <div class="tarjeta-form mt-8">
+          <label class="campo"><span>Tu nombre</span><input id="msgName" maxlength="60" autocomplete="name"></label>
+          <label class="campo"><span>Tu mensaje</span><textarea id="msgText" maxlength="600"></textarea></label>
+          <p class="aviso" id="msgErr"></p>
+          <div class="text-center"><button class="boton" type="button" id="sendMsg">Enviar mensaje</button></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Cierre -->
+    <section class="py-14 text-center">
+      <div class="reveal">
+        <p class="mx-auto max-w-[520px] font-body text-[clamp(1.15rem,4vw,1.45rem)] text-hug italic leading-relaxed text-[var(--ink)]">Gracias a Dios por regalarme la vida y permitirme llegar a este momento tan especial. A mis padres, por su amor y por hacer posible este sueño; y a ti, por acompañarme y ser parte de un recuerdo que llevaré siempre en mi corazón.</p>
+        <p class="font-script mt-8 text-[clamp(2rem,8vw,3.2rem)]"><span class="inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-1"><span class="gold-text" style="text-shadow:none">Neizi Lisbeth Samaniego Aguilar</span></span></p>
+        <p class="font-display mt-2 text-sm tracking-[0.4em] text-[var(--burgundy-deep)] font-semibold">23 · 01 · 2027</p>
+      </div>
+    </section>
+
+
+    <div class="reveal py-2"><img src="img/diseno/separador.webp" alt="" loading="lazy" aria-hidden="true" class="mx-auto w-[min(76vw,420px)] opacity-90"></div>
+
+    <!-- Confirmación -->
+    <section class="py-14" id="confirmar">
+      <div class="reveal">
+        <div class="text-center"><h2 class="font-display inline-block rounded-2xl bg-[var(--burgundy)]/40 px-6 py-2 text-center text-[clamp(1.4rem,4.4vw,2.2rem)] tracking-[0.18em] uppercase text-[var(--champagne)]" style="text-shadow:0 2px 10px rgba(0,0,0,0.35)">Confirma tu asistencia</h2></div>
+        <div class="mt-6 text-center font-body text-[clamp(1.12rem,3.9vw,1.3rem)] mx-auto max-w-[640px] text-hug">
+          <p>Quiero preparar cada detalle especialmente para ti.</p>
+          <p class="mt-3" id="aviso-fecha"></p>
+        </div>
+        <div class="tarjeta-form mt-8" id="rCard">
+          <!-- Pase del invitado: solo aparece si entró con su enlace personal ?i=… -->
+          <p class="pase" id="seatsNote" hidden></p>
+          <label class="campo"><span>Nombre completo</span><input id="rName" maxlength="80" autocomplete="name"></label>
+          <div class="opciones" role="radiogroup" aria-label="¿Asistirás?">
+            <label><input type="radio" name="att" value="si" checked><span>¡Sí, ahí estaré!</span></label>
+            <label><input type="radio" name="att" value="no"><span>No podré ir</span></label>
+          </div>
+          <label class="campo" id="paxWrap"><span>Número de personas</span>
+            <select id="rPax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+          </label>
+          <p class="aviso" id="rErr"></p>
+          <div class="hecho" id="rDone" hidden></div>
+          <div class="text-center"><button class="boton" type="button" id="rWa"><img src="img/diseno/icono-whatsapp.webp" alt="" aria-hidden="true"><span id="rBtnTxt">Confirmar por WhatsApp</span></button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="config.js?v=2"></script>
+<script>
+(function () {
+  const C = window.CONFIG || {};
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+  /* ---------- Intro con el sobre ---------- */
+  const intro = $('#intro'), video = $('#video-sobre'), audio = $('#audio'), bMusica = $('#boton-musica');
+  let abierto = false;
+  function entrar() {
+    if (abierto) return;
+    abierto = true;
+    intro.classList.add('fuera');
+    document.body.classList.remove('bloqueado');
+    bMusica.classList.add('visible');
+    setTimeout(() => intro.remove(), 1300);
+    $$('.reveal').forEach(el => io.observe(el));
+  }
+  $('#abrir').addEventListener('click', () => {
+    $('#abrir').hidden = true;
+    $('#saltar').hidden = false;
+    iniciarMusica();
+    video.play().catch(entrar);
+  });
+  $('#saltar').addEventListener('click', entrar);
+  video.addEventListener('ended', entrar);
+  video.addEventListener('timeupdate', () => { if (video.duration && video.currentTime > video.duration - 0.9) entrar(); });
+
+  /* ---------- Música ---------- */
+  if (C.musica) audio.src = C.musica; else bMusica.hidden = true;
+  audio.addEventListener('error', () => bMusica.hidden = true);
+  function iniciarMusica() {
+    if (!C.musica) return;
+    audio.play().then(() => bMusica.classList.add('sonando')).catch(() => {});
+  }
+  bMusica.addEventListener('click', () => {
+    if (audio.paused) iniciarMusica();
+    else { audio.pause(); bMusica.classList.remove('sonando'); }
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && !audio.paused) { audio.pause(); audio.dataset.auto = '1'; }
+    else if (!document.hidden && audio.dataset.auto) { delete audio.dataset.auto; iniciarMusica(); }
+  });
+
+  /* ---------- Fotos: aparecen solas si existe el archivo ---------- */
+  $$('[data-foto]').forEach(box => {
+    const img = new Image();
+    img.alt = 'Neizi Lisbeth';
+    img.className = 'cargada';
+    img.onload = () => { box.prepend(img); box.classList.add('lista'); };
+    img.src = box.dataset.foto;
+  });
+
+  /* ---------- Cuenta regresiva ---------- */
+  const meta = new Date(C.fechaEvento || '2027-01-23T20:00:00-05:00').getTime();
+  const celdas = {}; $$('[data-c]').forEach(el => celdas[el.dataset.c] = el);
+  function tic() {
+    let r = Math.max(0, meta - Date.now()) / 1000;
+    const d = Math.floor(r / 86400); r -= d * 86400;
+    const h = Math.floor(r / 3600); r -= h * 3600;
+    const m = Math.floor(r / 60); const s = Math.floor(r - m * 60);
+    celdas.d.textContent = d; celdas.h.textContent = h; celdas.m.textContent = m; celdas.s.textContent = s;
+  }
+  tic(); setInterval(tic, 1000);
+
+  /* ---------- Aparición al desplazarse ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('reveal-in'); io.unobserve(e.target); }
+  }), { threshold: .12 });
+
+  /* ---------- Invitación personalizada (?i=…, la crea el panel) ---------- */
+  const WA = C.whatsapp || '';
+  const API = C.apiUrl || '';
+  if (C.confirmarAntesDe) $('#aviso-fecha').textContent = 'Por favor confirma tu asistencia antes del ' + C.confirmarAntesDe + '.';
+  else $('#aviso-fecha').remove();
+
+  let inv = null;
+  function readInv(code) {
+    try {
+      const t = decodeURIComponent(escape(atob(code.replace(/-/g, '+').replace(/_/g, '/'))));
+      const [n, p] = t.split('|'); const k = parseInt(p, 10);
+      return k >= 1 && k <= 20 ? { nombre: (n || '').trim(), puestos: k } : null;
+    } catch (e) { return null; }
+  }
+  const code = new URLSearchParams(location.search).get('i');
+  if (code) { inv = readInv(code); if (inv) { try { localStorage.setItem('xv-inv', JSON.stringify(inv)); } catch (e) {} } }
+  if (!inv && !code) { try { inv = JSON.parse(localStorage.getItem('xv-inv')); } catch (e) {} }
+  const seatsTxt = n => n === 1 ? '1 persona' : n + ' personas';
+  if (inv) {
+    if (inv.nombre) { $('#rName').value = inv.nombre; $('#msgName').value = inv.nombre; }
+    const b = document.createElement('b'); b.textContent = inv.puestos;
+    $('#seatsNote').append(b, inv.puestos === 1 ? 'puesto reservado en tu honor' : 'puestos reservados en tu honor');
+    $('#seatsNote').hidden = false;
+    const sel = $('#rPax'); sel.innerHTML = '';
+    for (let i = 1; i <= inv.puestos; i++) { const o = document.createElement('option'); o.textContent = i; sel.append(o); }
+    sel.value = inv.puestos;
+  }
+
+  /* ---------- Envíos: a Google Sheets si está conectado (config.js); si no, por WhatsApp ---------- */
+  const wa = txt => window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
+  const val = s => $(s).value.trim();
+  // Apps Script no responde con permisos CORS al enviar, por eso "no-cors"
+  const save = params => fetch(API, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(params) });
+  async function send(btn, params, onOk, fallbackText, errEl) {
+    if (!API) { wa(fallbackText); return; }
+    btn.disabled = true; const old = btn.innerHTML; btn.textContent = 'Enviando…';
+    try { await save(params); onOk(); }
+    catch (e) { errEl.classList.remove('ok'); errEl.textContent = 'No se pudo enviar. Revisa tu conexión.'; }
+    btn.disabled = false; btn.innerHTML = old;
+  }
+  if (API) $('#rBtnTxt').textContent = 'Confirmar asistencia';
+
+  $('#sendSong').onclick = () => {
+    const s = val('#song'), e = $('#songErr');
+    e.classList.remove('ok');
+    if (!s) { e.textContent = 'Escribe una canción.'; return; }
+    e.textContent = '';
+    send($('#sendSong'), { tipo: 'cancion', cancion: s, nombre: inv ? inv.nombre : '' },
+      () => { $('#song').value = ''; e.classList.add('ok'); e.textContent = '¡Canción agregada a la playlist!'; },
+      '🎶 Para la playlist de los XV de Neizi sugiero: ' + s, e);
+  };
+  $('#sendMsg').onclick = () => {
+    const n = val('#msgName'), t = val('#msgText'), e = $('#msgErr');
+    e.classList.remove('ok');
+    if (!t) { e.textContent = 'Escribe tu mensaje.'; return; }
+    e.textContent = '';
+    send($('#sendMsg'), { tipo: 'mensaje', nombre: n, mensaje: t },
+      () => { $('#msgText').value = ''; e.classList.add('ok'); e.textContent = '¡Tu mensaje le llegó a Neizi! 💌'; },
+      '💌 Mensaje para Neizi' + (n ? ' de ' + n : '') + ':\n\n' + t, e);
+  };
+
+  const att = () => document.querySelector('input[name=att]:checked').value;
+  $$('input[name=att]').forEach(r => r.addEventListener('change', () => {
+    $('#paxWrap').style.display = att() === 'si' ? '' : 'none';
+  }));
+  $('#rWa').onclick = () => {
+    const n = val('#rName'), e = $('#rErr');
+    if (!n) { e.textContent = 'Escribe tu nombre.'; return; }
+    e.textContent = '';
+    const yes = att() === 'si', pax = $('#rPax').value;
+    const text = yes
+      ? '✨ ¡Confirmo mi asistencia a los XV de Neizi Lisbeth!\nNombre: ' + n + '\nPersonas: ' + pax
+      : 'Hola, lamentablemente no podré asistir a los XV de Neizi Lisbeth.\nNombre: ' + n;
+    send($('#rWa'), { tipo: 'rsvp', nombre: n, asistira: att(), personas: yes ? pax : 0, puestos: inv ? inv.puestos : '', invitacion: inv ? inv.nombre : '' }, () => {
+      [...$('#rCard').children].forEach(c => { if (c.id !== 'rDone') c.hidden = true; });
+      const d = $('#rDone'); d.innerHTML = '';
+      const b = document.createElement('b'); b.textContent = yes ? '¡Te espero en la gala!' : '¡Gracias por avisarnos!';
+      const p = document.createElement('p'); p.textContent = yes ? 'Confirmaste ' + seatsTxt(+pax) + '. ¡Te esperamos el 23 de enero!' : 'Te vamos a extrañar. Gracias por tu cariño.';
+      d.append(b, p); d.hidden = false;
+    }, text, e);
+  };
+})();
+</script>
+</body>
+</html>

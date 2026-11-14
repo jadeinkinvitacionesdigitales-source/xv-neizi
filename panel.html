@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="es" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050206">
+<title>Panel XV Neizi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--fuc:#d4af6a;--fuc-2:#f3dca0;--ink:#1a0709;--gris:#c9b28a;--paper:#f6ead2;--line:#4a1a22;--card:#2a0b10;
+  --serif:"Cormorant Garamond",Georgia,serif;--display:"Cinzel",Georgia,serif;--mono:"Cinzel",Georgia,serif;--script:"Great Vibes",cursive}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{background:var(--ink) radial-gradient(circle at 50% -10%,rgba(212,175,106,.22),transparent 55%) no-repeat;color:var(--paper);font-family:var(--serif);min-height:100vh}
+button,input,select,textarea{font:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 80px}
+header{text-align:center;padding:34px 16px 10px}
+header .xv{font-family:var(--display);font-size:54px;color:var(--fuc);line-height:1;text-shadow:0 0 22px rgba(212,175,106,.5)}
+header .n{font-family:var(--script);font-size:40px;line-height:1}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gris)}
+.label.fuc{color:var(--fuc)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-size:13px;letter-spacing:.1em;padding:12px 18px;border-radius:999px;
+  border:2px solid var(--fuc);background:var(--fuc);color:#2a0b10;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;border-color:#4a4050;color:var(--paper)}
+.btn.ghost:hover{border-color:var(--fuc);color:var(--fuc)}
+.btn.sm{font-size:11px;padding:8px 14px}
+.btn:disabled{opacity:.5;cursor:default}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 18px}
+.field{display:block;margin-bottom:14px}
+.field>span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);margin-bottom:6px}
+.field input{width:100%;font-size:17px;color:var(--paper);background:var(--ink);border:1px solid #5a2a32;border-radius:10px;padding:12px 14px;outline:none}
+.field input:focus{border-color:var(--fuc);box-shadow:0 0 0 3px rgba(212,175,106,.2)}
+.msg{font-family:var(--mono);font-size:12px;color:var(--fuc-2);margin-top:10px;min-height:16px}
+.banner{border:1px dashed var(--fuc);border-radius:12px;padding:14px 16px;font-size:15px;line-height:1.5;margin:18px 0;background:rgba(212,175,106,.08)}
+.banner b{color:var(--fuc)}
+
+#login{max-width:380px;margin:30px auto 0}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:18px 0 6px}
+.bar p{font-family:var(--mono);font-size:11px;color:var(--gris)}
+.bar .actions{display:flex;gap:8px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 10px;text-align:center}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:44px;line-height:1;color:var(--fuc);text-shadow:0 0 12px rgba(212,175,106,.45)}
+.stat.gr b{color:var(--paper);text-shadow:none}
+.stat span{display:block;margin-top:6px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+
+.tabs{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:6px;margin:22px 0 16px}
+@media (max-width:600px){.tabs{grid-template-columns:1fr 1fr}.tabs button{text-align:center}}
+.cta{width:100%;margin-top:16px;font-size:14px;padding:14px 16px;white-space:normal}
+.tabs button{flex:none;background:none;border:1px solid #5a2a32;color:#cfc8cc;font-family:var(--display);font-size:12px;letter-spacing:.08em;padding:9px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--fuc);border-color:var(--fuc);color:#2a0b10}
+.tabs button em{font-style:normal;opacity:.75;font-size:14px;margin-left:4px}
+[role=tabpanel][hidden]{display:none}
+
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.filters button{background:none;border:1px solid #5a2a32;color:#cfc8cc;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed="true"]{border-color:var(--fuc);color:var(--fuc)}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{text-align:left;font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);padding:12px 12px;border-bottom:1px solid var(--line);white-space:nowrap;background:var(--card)}
+td{padding:12px;border-bottom:1px solid #1d1720;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+td.num{text-align:center;font-family:var(--display);font-size:16px}
+td.date{font-family:var(--mono);font-size:11px;color:var(--gris);white-space:nowrap}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.pill.si{background:rgba(212,175,106,.18);color:var(--fuc-2)}
+.pill.no{background:#2a2a2c;color:#bdb8ba}
+.pill.over{background:#ffcc00;color:#000}
+.empty{font-style:italic;color:var(--gris);padding:22px 12px;text-align:center}
+.note{font-family:var(--mono);font-size:10px;color:var(--gris);margin-top:10px;line-height:1.6}
+
+.songs{display:grid;gap:8px}
+.song{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.song .ic{flex:none;width:40px;height:40px;border-radius:50%;background:#000 radial-gradient(circle,var(--fuc) 0 4px,#111 5px 9px,#000 10px 100%);border:1px solid #333}
+.song b{display:block;font-family:var(--display);font-weight:400;font-size:15px;letter-spacing:.03em;line-height:1.1}
+.song small{font-family:var(--mono);font-size:10px;color:var(--gris);letter-spacing:.08em}
+.song a{margin-left:auto;flex:none;color:var(--fuc);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.note-card{background:var(--paper);color:#221c20;padding:18px 16px 14px;border-radius:3px;box-shadow:0 10px 24px rgba(0,0,0,.5);position:relative}
+.note-card:nth-child(odd){transform:rotate(-.8deg)}.note-card:nth-child(even){transform:rotate(.8deg)}
+.note-card::before{content:"";position:absolute;top:-8px;left:50%;width:60px;height:16px;transform:translateX(-50%) rotate(-2deg);background:rgba(212,175,106,.7)}
+.note-card p{font-size:16px;line-height:1.5;white-space:pre-line}
+.note-card .by{font-family:var(--script);font-size:24px;color:var(--fuc);margin-top:8px}
+.note-card .d{font-family:var(--mono);font-size:9px;color:#8a8486;letter-spacing:.1em}
+
+.gen{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.gen>div,.gen-row>*{min-width:0}
+.gen-row{display:grid;grid-template-columns:minmax(0,1fr) 90px;gap:10px}
+.result{border-color:var(--fuc)}
+.result .link{font-family:var(--mono);font-size:11px;word-break:break-all;color:var(--fuc-2);background:var(--ink);border-radius:8px;padding:10px;margin:8px 0 12px}
+.result .preview{font-size:15px;line-height:1.5;white-space:pre-line;color:#d8d2d5;background:var(--ink);border-radius:8px;padding:12px;margin-bottom:14px}
+.result .btns{display:flex;flex-wrap:wrap;gap:8px}
+.inv-actions{display:flex;gap:6px;justify-content:flex-end}
+.inv-actions button{background:none;border:1px solid #5a2a32;color:#cfc8cc;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px;cursor:pointer}
+.inv-actions button:hover{border-color:var(--fuc);color:var(--fuc)}
+.inv-actions button.del:hover{border-color:#aaa;color:#fff}
+.total{font-family:var(--mono);font-size:12px;color:var(--gris);margin:4px 0 10px}
+.total b{color:var(--fuc)}
+h2{font-family:var(--display);font-weight:400;font-size:20px;letter-spacing:.05em;margin-bottom:10px}
+
+@media (min-width:760px){.gen{grid-template-columns:360px 1fr;align-items:start}}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="xv">XV</div>
+  <div class="n">Neizi Lisbeth</div>
+  <div class="label" style="margin-top:8px">Panel de la fiesta</div>
+</header>
+
+<div class="wrap">
+  <p class="label" id="loading" style="text-align:center;margin-top:40px" hidden>Cargando el panel…</p>
+  <form class="card" id="login" hidden>
+    <label class="field"><span>Clave del panel</span><input id="clave" type="password" required autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false"></label>
+    <button class="btn" type="submit" style="width:100%">Entrar</button>
+    <p class="msg" id="loginMsg"></p>
+  </form>
+
+  <div id="app" hidden>
+    <div class="banner" id="noApi" hidden>
+      <b>Aún no está conectado Google Sheets.</b> Ya puedes crear invitaciones personalizadas. Las confirmaciones, la playlist y los mensajes aparecerán aquí cuando se conecte la hoja; mientras tanto llegan por WhatsApp.
+    </div>
+
+    <div class="bar">
+      <p id="updated"></p>
+      <div class="actions">
+        <button class="btn ghost sm" id="reload" type="button">Actualizar</button>
+        <button class="btn ghost sm" id="logout" type="button">Salir</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b id="sPeople">0</b><span>Personas asisten</span></div>
+      <div class="stat gr"><b id="sSeats">0</b><span>Puestos reservados</span></div>
+      <div class="stat gr"><b id="sNo">0</b><span>No asistirán</span></div>
+      <div class="stat gr"><b id="sPending">0</b><span>Sin responder</span></div>
+    </div>
+
+    <button class="btn cta" type="button" id="goInv">🎟️ Crear invitación personalizada</button>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="tConf">Confirmaciones<em id="nConf"></em></button>
+      <button role="tab" aria-selected="false" data-tab="tSongs">Playlist<em id="nSongs"></em></button>
+      <button role="tab" aria-selected="false" data-tab="tMsgs">Mensajes<em id="nMsgs"></em></button>
+      <button role="tab" aria-selected="false" data-tab="tInv">Invitaciones<em id="nInv"></em></button>
+    </div>
+
+    <!-- Confirmaciones -->
+    <section role="tabpanel" id="tConf">
+      <div class="filters" role="group" aria-label="Filtrar">
+        <button type="button" data-f="todas" aria-pressed="true">Todas</button>
+        <button type="button" data-f="Sí" aria-pressed="false">Asisten</button>
+        <button type="button" data-f="No" aria-pressed="false">No asisten</button>
+        <button type="button" data-f="pend" aria-pressed="false">Sin responder</button>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Nombre</th><th>Respuesta</th><th style="text-align:center">Personas</th><th style="text-align:center">Puestos</th><th>Fecha</th></tr></thead>
+        <tbody id="confRows"></tbody>
+      </table></div>
+      <p class="note">Si alguien respondió más de una vez, cuenta solo su última respuesta. "Sin responder" sale de las invitaciones creadas en la pestaña Invitaciones.</p>
+    </section>
+
+    <!-- Playlist -->
+    <section role="tabpanel" id="tSongs" hidden>
+      <div class="songs" id="songList"></div>
+    </section>
+
+    <!-- Mensajes -->
+    <section role="tabpanel" id="tMsgs" hidden>
+      <div class="notes" id="msgList"></div>
+    </section>
+
+    <!-- Invitaciones -->
+    <section role="tabpanel" id="tInv" hidden>
+      <div class="gen">
+        <div>
+          <form class="card" id="genForm">
+            <h2>Nueva invitación</h2>
+            <div class="gen-row">
+              <label class="field"><span>Nombre del invitado</span><input id="gName" placeholder="Ej. Familia Pérez" required maxlength="60" autocomplete="off"></label>
+              <label class="field"><span>Puestos</span><input id="gSeats" type="number" min="1" max="20" value="2" required></label>
+            </div>
+            <button class="btn" type="submit" style="width:100%">Crear invitación</button>
+            <p class="msg" id="genMsg"></p>
+          </form>
+
+          <div class="card result" id="result" hidden style="margin-top:16px">
+            <span class="label fuc">Invitación de</span>
+            <h2 id="rTitle" style="margin-top:4px"></h2>
+            <div class="link" id="rLink"></div>
+            <div class="preview" id="rText"></div>
+            <div class="btns">
+              <a class="btn sm" id="rWa" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+              <button class="btn ghost sm" type="button" id="rCopyMsg">Copiar mensaje</button>
+              <button class="btn ghost sm" type="button" id="rCopyLink">Copiar enlace</button>
+              <a class="btn ghost sm" id="rOpen" target="_blank" rel="noopener">Ver</a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2>Invitaciones creadas</h2>
+          <p class="total" id="invTotal"></p>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Invitado</th><th style="text-align:center">Puestos</th><th>Estado</th><th></th></tr></thead>
+            <tbody id="invRows"></tbody>
+          </table></div>
+          <p class="note" id="invNote"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="config.js?v=3"></script>
+<script>
+(() => {
+  const API = (window.CONFIG && CONFIG.apiUrl) || '';
+  const WEB = (window.CONFIG && CONFIG.web) || location.href.replace(/panel\.html.*$/, '');
+  const KEY = 'xv-panel-clave', LOCAL = 'xv-invitaciones';
+  const $ = id => document.getElementById(id);
+  const norm = s => String(s || '').trim().toLowerCase();
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  let data = { confirmaciones: [], playlist: [], mensajes: [], invitaciones: [] };
+  let filter = 'todas', clave = '';
+
+  const fmt = iso => {
+    const d = new Date(iso);
+    return isNaN(d) ? '' : d.toLocaleDateString('es-PA', { day: 'numeric', month: 'short' }) + ' · ' +
+      d.toLocaleTimeString('es-PA', { hour: 'numeric', minute: '2-digit' });
+  };
+  const seatsTxt = n => n === 1 ? '1 puesto' : n + ' puestos';
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+  /* ---------- enlaces personalizados ---------- */
+  const encode = (n, p) => btoa(unescape(encodeURIComponent(n + '|' + p))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const link = (n, p) => WEB + '?i=' + encode(n, p);
+  const message = (n, p) =>
+    '¡Hola, ' + n + '! ✨\n\n' +
+    'Con mucha alegría te invito a celebrar mis XV años el sábado 23 de enero de 2027 a las 8:00 p.m. en el Hotel W, Ciudad de Panamá.\n\n' +
+    'Hemos reservado ' + seatsTxt(p) + ' en tu honor.\n\n' +
+    'Aquí encontrarás todos los detalles y podrás confirmar tu asistencia:\n' + link(n, p) + '\n\n' +
+    'Con cariño,\nNeizi Lisbeth';
+
+  /* ---------- datos ---------- */
+  function lastPerName(rows) {
+    const m = new Map();
+    rows.slice().sort((a, b) => new Date(a.fecha) - new Date(b.fecha)).forEach(r => m.set(norm(r.nombre), r));
+    return [...m.values()].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+  }
+  function localInv() { try { return JSON.parse(store.get(LOCAL)) || []; } catch (e) { return []; } }
+
+  async function load() {
+    if (!API) {
+      data.invitaciones = localInv();
+      $('updated').textContent = 'Modo sin conexión a Google Sheets';
+      render(); return true;
+    }
+    $('updated').textContent = 'Cargando…';
+    try {
+      const r = await fetch(API + '?clave=' + encodeURIComponent(clave));
+      const j = await r.json();
+      if (!j.ok) return false;
+      data = { confirmaciones: j.confirmaciones || [], playlist: j.playlist || [], mensajes: j.mensajes || [], invitaciones: j.invitaciones || [] };
+      $('updated').textContent = 'Actualizado ' + fmt(new Date().toISOString());
+      render(); return true;
+    } catch (e) {
+      $('updated').textContent = 'No se pudo cargar. Revisa tu conexión.';
+      return null;
+    }
+  }
+
+  async function post(params) {
+    if (!API) return;
+    // Apps Script no responde con permisos CORS al enviar, por eso "no-cors"
+    await fetch(API, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(Object.assign({ clave }, params)) });
+  }
+
+  /* ---------- pintar ---------- */
+  function render() {
+    const conf = lastPerName(data.confirmaciones);
+    const yes = conf.filter(r => r.asistira === 'Sí'), no = conf.filter(r => r.asistira === 'No');
+    const answered = new Set(conf.map(r => norm(r.nombre)));
+    const invs = data.invitaciones.map(i => ({ nombre: String(i.nombre), puestos: +i.puestos || 0 }));
+    const pending = invs.filter(i => !answered.has(norm(i.nombre)));
+
+    $('sPeople').textContent = yes.reduce((s, r) => s + (+r.personas || 0), 0);
+    $('sSeats').textContent = invs.reduce((s, i) => s + i.puestos, 0);
+    $('sNo').textContent = no.length;
+    $('sPending').textContent = pending.length;
+    $('nConf').textContent = conf.length ? ' ' + conf.length : '';
+    $('nSongs').textContent = data.playlist.length ? ' ' + data.playlist.length : '';
+    $('nMsgs').textContent = data.mensajes.length ? ' ' + data.mensajes.length : '';
+    $('nInv').textContent = invs.length ? ' ' + invs.length : '';
+
+    // Confirmaciones
+    const tb = $('confRows'); tb.innerHTML = '';
+    let rows;
+    if (filter === 'pend') rows = pending.map(i => ({ nombre: i.nombre, pend: true, puestos: i.puestos }));
+    else rows = filter === 'todas' ? conf : conf.filter(r => r.asistira === filter);
+    if (!rows.length) {
+      const td = el('td', 'empty', filter === 'pend' ? (invs.length ? '¡Todos respondieron!' : 'Crea invitaciones para ver quién falta.') : 'Todavía no hay respuestas.');
+      td.colSpan = 5; const tr = el('tr'); tr.append(td); tb.append(tr);
+    }
+    rows.forEach(r => {
+      const tr = el('tr');
+      const st = el('td');
+      if (r.pend) st.append(el('span', 'pill no', 'Pendiente'));
+      else st.append(el('span', 'pill ' + (r.asistira === 'Sí' ? 'si' : 'no'), r.asistira === 'Sí' ? 'Asiste' : 'No asiste'));
+      const pers = r.pend || r.asistira !== 'Sí' ? '—' : r.personas;
+      const pTd = el('td', 'num', pers);
+      if (!r.pend && r.asistira === 'Sí' && r.puestos && +r.personas > +r.puestos) {
+        pTd.append(' ', el('span', 'pill over', 'excede'));
+      }
+      tr.append(el('td', '', r.nombre), st, pTd, el('td', 'num', r.puestos || '—'), el('td', 'date', r.pend ? '' : fmt(r.fecha)));
+      tb.append(tr);
+    });
+
+    // Playlist
+    const sl = $('songList'); sl.innerHTML = '';
+    if (!data.playlist.length) sl.append(el('p', 'empty', 'Todavía no hay canciones sugeridas.'));
+    data.playlist.slice().reverse().forEach(s => {
+      const row = el('div', 'song'); row.append(el('span', 'ic'));
+      const t = el('div'); t.append(el('b', '', s.cancion), el('small', '', (s.nombre ? s.nombre + ' · ' : '') + fmt(s.fecha)));
+      const a = el('a', '', 'Buscar'); a.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(s.cancion); a.target = '_blank'; a.rel = 'noopener';
+      row.append(t, a); sl.append(row);
+    });
+
+    // Mensajes
+    const ml = $('msgList'); ml.innerHTML = '';
+    if (!data.mensajes.length) ml.append(el('p', 'empty', 'Todavía no hay mensajes para Neizi.'));
+    data.mensajes.slice().reverse().forEach(m => {
+      const c = el('div', 'note-card');
+      c.append(el('p', '', m.mensaje), el('div', 'by', m.nombre || 'Anónimo'), el('div', 'd', fmt(m.fecha)));
+      ml.append(c);
+    });
+
+    // Invitaciones
+    const ir = $('invRows'); ir.innerHTML = '';
+    if (!invs.length) { const td = el('td', 'empty', 'Todavía no has creado invitaciones.'); td.colSpan = 4; const tr = el('tr'); tr.append(td); ir.append(tr); }
+    const confByName = new Map(conf.map(r => [norm(r.nombre), r]));
+    invs.forEach(i => {
+      const tr = el('tr'); const c = confByName.get(norm(i.nombre)); const st = el('td');
+      if (!c) st.append(el('span', 'pill no', 'Pendiente'));
+      else st.append(el('span', 'pill ' + (c.asistira === 'Sí' ? 'si' : 'no'), c.asistira === 'Sí' ? 'Asiste · ' + c.personas : 'No asiste'));
+      const act = el('td'); const box = el('div', 'inv-actions');
+      const v = el('button', '', 'Enlace'); v.type = 'button'; v.onclick = () => show(i.nombre, i.puestos);
+      const d = el('button', 'del', 'Quitar'); d.type = 'button'; d.onclick = () => remove(i.nombre);
+      box.append(v, d); act.append(box);
+      tr.append(el('td', '', i.nombre), el('td', 'num', i.puestos), st, act); ir.append(tr);
+    });
+    const total = invs.reduce((s, i) => s + i.puestos, 0);
+    $('invTotal').innerHTML = '';
+    $('invTotal').append('Total: ', el('b', '', total), ' ' + (total === 1 ? 'puesto' : 'puestos') + ' en ', el('b', '', invs.length), ' ' + (invs.length === 1 ? 'invitación' : 'invitaciones'));
+    $('invNote').textContent = API ? 'La lista se guarda en Google Sheets: la verás desde cualquier celular o computadora.'
+      : 'Sin Google Sheets, esta lista se guarda solo en este navegador. Los enlaces enviados funcionan igual.';
+  }
+
+  /* ---------- invitaciones ---------- */
+  let current = null;
+  function show(n, p) {
+    current = { n, p };
+    $('rTitle').textContent = n + ' · ' + seatsTxt(p);
+    $('rLink').textContent = link(n, p);
+    $('rText').textContent = message(n, p);
+    $('rWa').href = 'https://wa.me/?text=' + encodeURIComponent(message(n, p));
+    $('rOpen').href = link(n, p);
+    $('result').hidden = false;
+    $('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  async function copy(text, btn, label) {
+    try { await navigator.clipboard.writeText(text); btn.textContent = '¡Copiado!'; } catch (e) { btn.textContent = 'Selecciona y copia'; }
+    setTimeout(() => btn.textContent = label, 1800);
+  }
+  $('rCopyMsg').onclick = e => current && copy(message(current.n, current.p), e.target, 'Copiar mensaje');
+  $('rCopyLink').onclick = e => current && copy(link(current.n, current.p), e.target, 'Copiar enlace');
+
+  function upsertLocal(n, p) {
+    const ex = data.invitaciones.find(i => norm(i.nombre) === norm(n));
+    if (ex) ex.puestos = p; else data.invitaciones.push({ nombre: n, puestos: p });
+    if (!API) store.set(LOCAL, JSON.stringify(data.invitaciones));
+  }
+  $('genForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const n = $('gName').value.trim().replace(/\|/g, '/');
+    const p = Math.max(1, Math.min(20, parseInt($('gSeats').value, 10) || 1));
+    if (!n) return;
+    $('genMsg').textContent = '';
+    upsertLocal(n, p); render(); show(n, p);
+    $('gName').value = ''; $('gName').focus();
+    try { await post({ tipo: 'invitacion', nombre: n, puestos: p }); }
+    catch (err) { $('genMsg').textContent = 'No se pudo guardar en la hoja. El enlace funciona igual.'; }
+  });
+  async function remove(n) {
+    if (!confirm('¿Quitar la invitación de ' + n + ' de la lista? El enlace que ya enviaste seguirá funcionando.')) return;
+    data.invitaciones = data.invitaciones.filter(i => norm(i.nombre) !== norm(n));
+    if (!API) store.set(LOCAL, JSON.stringify(data.invitaciones));
+    render();
+    try { await post({ tipo: 'quitar', nombre: n }); } catch (e) {}
+  }
+
+  /* ---------- pestañas y filtros ---------- */
+  $('goInv').onclick = () => {
+    document.querySelector('[data-tab=tInv]').click();
+    $('genForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => $('gName').focus(), 400);
+  };
+  document.querySelectorAll('[role=tab]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('[role=tab]').forEach(x => x.setAttribute('aria-selected', x === b));
+    document.querySelectorAll('[role=tabpanel]').forEach(p => p.hidden = p.id !== b.dataset.tab);
+  }));
+  document.querySelectorAll('[data-f]').forEach(b => b.addEventListener('click', () => {
+    filter = b.dataset.f;
+    document.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render();
+  }));
+
+  /* ---------- acceso ---------- */
+  function openApp() { $('login').hidden = true; $('app').hidden = false; }
+  $('reload').onclick = () => load();
+  $('logout').onclick = () => { store.set(KEY, null); clave = ''; $('app').hidden = true; $('login').hidden = !API; if (!API) location.reload(); };
+  $('login').addEventListener('submit', async e => {
+    e.preventDefault();
+    clave = $('clave').value.trim();
+    $('loginMsg').textContent = 'Verificando… (puede tardar unos segundos)';
+    let ok = await load();
+    // El teclado del celular a veces pone mayúscula inicial: reintenta en minúsculas
+    if (ok === false && clave !== clave.toLowerCase()) { clave = clave.toLowerCase(); ok = await load(); }
+    if (ok) { store.set(KEY, clave); $('loginMsg').textContent = ''; openApp(); }
+    else $('loginMsg').textContent = ok === false ? 'Clave incorrecta.' : 'No se pudo conectar. Inténtalo de nuevo.';
+  });
+
+  if (!API) { $('noApi').hidden = false; $('logout').hidden = true; openApp(); load(); }
+  else {
+    const saved = store.get(KEY);
+    if (saved) { clave = saved; $('loading').hidden = false; load().then(ok => { $('loading').hidden = true; if (ok) openApp(); else { store.set(KEY, null); $('login').hidden = false; } }); }
+    else $('login').hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
